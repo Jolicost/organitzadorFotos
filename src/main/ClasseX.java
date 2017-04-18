@@ -8,7 +8,7 @@ public class ClasseX {
 	}
 	
 	public static void parida (){
-		System.out.println("Parida...");
+		System.out.println("No es cap parida");
 		                                                       
 	}
 	
