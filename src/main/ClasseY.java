@@ -7,6 +7,6 @@ public class ClasseY extends ClasseX {
 	}
 	
 	public void Y(){
-		
+		System.out.println("Soc la classe Y");
 	}
 }
