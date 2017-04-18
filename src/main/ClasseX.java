@@ -11,4 +11,8 @@ public class ClasseX {
 	protected void X(){
 		
 	}
+	
+	public String toString(){
+		return "X";
+	}
 }
