@@ -1,5 +1,7 @@
 package main;
 
+import java.util.Scanner;
+
 import javax.swing.JFileChooser;
 
 public class LectorConsola extends LectorParametres {
@@ -23,27 +25,41 @@ public class LectorConsola extends LectorParametres {
 		
 		/* Codi de prova per llegir 1 carpeta, pots executar amb el main de la classe Main */
 		Configuracio ret = new Configuracio();
-		try {
-			/* Llegim una carpeta i la fiquem com a destí de la configuracio
-			 * escullidor es un atribut de la classe LectorConsola, sempre disponible
-			 */
-			String carpeta = escullidor.triarCarpeta();
-			ret.setDesti(carpeta);
-		} catch (TriaCancelada | ErrorTria e) {
-			/* Si succeeix un error imprimim el log */
-			System.err.println(e.toString());
+
+		//EL TEU CODI AQUI, cal manipular ret fent skmervir un escaner i l'objecte escullidor
+		try{
+		  System.out.println("Entra una ordre: origen / desti / mode / ordena ");
+		  
+		  Scanner in = new Scanner(System.in);
+		  String line = in.nextLine();
+		  while (!(line.equals("ordena"))){
+		  		if (line.equals("origen")){
+		  			ret.add(escullidor.triarCarpeta());
+		  			System.out.println("Afegida una carpeta d'origen");
+		  		}
+		  		if (line.equals("desti")){
+		  			ret.setDesti(escullidor.triarCarpeta());
+		  			System.out.println("S'ha establert una carpeta de desti");
+		  		}
+		  		if (line.equals("mode")){
+		  			System.out.println("carpeta unica / arbre carpetes");
+		  			String lectura = in.nextLine(); 
+		  			if (lectura.equals("carpeta unica")){
+		  				Mode m = Mode.carpeta_unica;
+		  				ret.setMode(m);
+		  			}
+		  			else{
+		  				Mode m = Mode.arbre_carpetes;
+		  				ret.setMode(m);
+		  			}
+		  		}
+		  		System.out.println("Entra una ordre: origen / desti / mode / ordena");
+		  		line = in.nextLine();
+		  }
+		} catch (Exception e) {
+			System.err.println("Hi ha hagut un error");
 		}
-		
-		//EL TEU CODI AQUI, cal manipular ret fent servir un escaner i l'objecte escullidor
-		/*
-		 * Scanner in = new Scanner(System.in);
-		 * String line = in.nextLine();
-		 * while (condicio de sortida){
-		 * 		Fer operacions
-		 * 		Llegir la seguent linea
-		 * }
-		 */
-		//FI DEL TEU CODI
+		 
 		return ret;
 	}
 	
