@@ -1,7 +1,10 @@
 package main;
 
+import java.awt.Component;
+import java.awt.HeadlessException;
 import java.util.Scanner;
 
+import javax.swing.JDialog;
 import javax.swing.JFileChooser;
 
 public class LectorConsola extends LectorParametres {
@@ -86,14 +89,25 @@ public class LectorConsola extends LectorParametres {
 
 		@Override
 		public String triarCarpeta() throws TriaCancelada, ErrorTria {
-			JFileChooser j = new JFileChooser();
+			
+			JFileChooser j = new MyChooser();
 			j.setDialogTitle("Tria un directori");
 			j.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-			int ret = j.showOpenDialog(null);
+			int ret = j.showDialog(null, "Triar carpeta");
+			//int ret = j.showOpenDialog(d);
 			if (ret == JFileChooser.CANCEL_OPTION) throw new TriaCancelada();
 			else if (ret == JFileChooser.ERROR_OPTION) throw new ErrorTria();
 			else return j.getSelectedFile().getAbsolutePath();
 		}
 		
 	}
+	
+	static class MyChooser extends JFileChooser {
+        protected JDialog createDialog(Component parent)
+                throws HeadlessException {
+            JDialog dlg = super.createDialog(parent);
+            dlg.setAlwaysOnTop(true);
+            return dlg;
+        }
+    }
 }
