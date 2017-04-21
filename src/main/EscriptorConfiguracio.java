@@ -1,6 +1,9 @@
 package main;
 
-import java.io.IOException;
+import java.io.File;
+import java.nio.charset.Charset;
+
+import org.apache.commons.io.FileUtils;
 
 public class EscriptorConfiguracio {
 	
@@ -13,6 +16,6 @@ public class EscriptorConfiguracio {
 	private String fitxer;
 	
 	public void Escriure() throws Exception {
-		
+		FileUtils.writeStringToFile(new File(fitxer), escriure.toJson(), Charset.defaultCharset().displayName());
 	}
 }

@@ -37,7 +37,9 @@ public class Main {
 			l.llegirConfiguracio();
 			Configuracio c = l.getConfiguracio();
 			c.validar();
-			System.out.println(c);
+			EscriptorConfiguracio e = new EscriptorConfiguracio(c,fitxer);
+			e.Escriure();
+			System.out.println("Configuracio escrita amb exit");
 		} catch (Exception e){
 			System.err.println(e.toString());
 		}

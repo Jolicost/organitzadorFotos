@@ -1,5 +1,10 @@
 package main;
 
+import java.io.File;
+import java.nio.charset.Charset;
+
+import org.apache.commons.io.FileUtils;
+
 public class LectorFitxer extends LectorConfiguracio {
 
 	public LectorFitxer(String fitxer){
@@ -8,9 +13,9 @@ public class LectorFitxer extends LectorConfiguracio {
 	
 	protected String fitxer;
 	@Override
-	protected Configuracio obtenirConfiguracio() {
-		Configuracio ret = new Configuracio();
-		// TODO Auto-generated method stub
+	protected Configuracio obtenirConfiguracio() throws Exception {
+		String json = FileUtils.readFileToString(new File(fitxer), Charset.defaultCharset().displayName());
+		Configuracio ret = Configuracio.fromJson(json);
 		return ret;
 	}
 
