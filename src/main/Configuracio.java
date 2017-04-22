@@ -85,9 +85,15 @@ public class Configuracio {
 		return g.fromJson(json, Configuracio.class);
 	}
 	
-	public void hola(){
-		
+	public boolean Validacio (){
+		try {
+			this.validar();
+			return true;
+		} catch (ConfiguracioInvalida e) {
+			return false;
+		}
 	}
+
 
 	
 }
