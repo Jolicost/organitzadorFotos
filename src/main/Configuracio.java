@@ -55,6 +55,13 @@ public class Configuracio {
 		if (!ret) throw new ConfiguracioInvalida();
 	}
 
+	public boolean esModeCarpeta(){
+		return this.mode.equals(Mode.carpeta_unica);
+	}
+	
+	public boolean esModeArbre(){
+		return this.mode.equals(Mode.arbre_carpetes);
+	}
 
 	@Override
 	public String toString() {

@@ -30,7 +30,7 @@ public class LectorConsola extends LectorConfiguracio {
 	  
 	Scanner in = new Scanner(System.in);
 	String line = in.nextLine();
-	while (!(line.equals("ordena"))){
+	while (!(line.equals("finalitza"))){
 		if (line.equals("origen")){
 			ret.add(escullidor.triarCarpeta());
 			System.out.println("Afegida una carpeta d'origen");
@@ -51,7 +51,7 @@ public class LectorConsola extends LectorConfiguracio {
 				ret.setMode(m);
 			}
 		}
-		System.out.println("Entra una ordre: origen / desti / mode / ordena");
+		System.out.println("Entra una ordre: origen / desti / mode / finalitza");
 		line = in.nextLine();
 	}
  

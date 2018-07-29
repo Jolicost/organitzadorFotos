@@ -1,9 +1,17 @@
 package main;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import algorisme.OrdenarFotografies;
+import lectorFotografies.FactoryLector;
+import lectorFotografies.ILector;
+import model.Fotografia;
+
 public class Main {
 
 	public static void main (String[] argv) {
-		if (argv.length < 2) {
+		if (argv.length < 1) {
 			System.err.println("usage: organitzadorFotos.jar (Mode) (Fitxer)");
 			System.err.println("Mode: consola | fitxer | test");
 			return;
@@ -50,6 +58,16 @@ public class Main {
 			LectorConfiguracio l = new LectorFitxer(fitxerConfiguracio);
 			l.llegirConfiguracio();
 			/* TODO: Logica de fotografies */
+			Set<Fotografia> fotos = new HashSet<>();
+			for (String root: l.getConfiguracio().getOrigen()){
+				ILector lector = FactoryLector.getInstance().obtenirLectorFotografies(l.getConfiguracio(), root);
+				lector.llegir();
+				fotos.addAll(lector.getResultat());
+			}
+			
+			OrdenarFotografies o = new OrdenarFotografies(fotos,l.getConfiguracio().getDesti());
+			o.ordenar();
+			
 		} catch (Exception e){
 			System.err.println(e.toString());
 		}
