@@ -16,7 +16,7 @@ public class LectorConsola extends LectorConfiguracio {
 	/* Escullidor de carpeta, fer servir aixo per escollir carpetes */
 	protected IEscullidorCarpeta escullidor;
 
-	/* Llegir una configuracio per consola, els fitxers han de ser llegits utilitzant la interfície
+	/* Llegir una configuracio per consola, els fitxers han de ser llegits utilitzant la interfï¿½cie
 	 */
 	@Override
 	protected Configuracio obtenirConfiguracio() throws Exception {
@@ -79,7 +79,6 @@ return ret;
 	}
 	protected class EscullidorCarpeta implements IEscullidorCarpeta{
 
-		@Override
 		public String triarCarpeta() throws TriaCancelada, ErrorTria {
 			
 			JFileChooser j = new MyChooser();

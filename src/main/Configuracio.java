@@ -19,7 +19,7 @@ public class Configuracio {
 	private List<String> origen;
 	
 	public Configuracio() {
-		this.origen = new ArrayList<>();
+		this.origen = new ArrayList<String>();
 	}
 	
 	public String getDesti() {

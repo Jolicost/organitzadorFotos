@@ -19,7 +19,7 @@ public class OrdenarFotografies {
 	
 	public OrdenarFotografies(Set<Fotografia> entrada,String path){
 		this.entrada = entrada;
-		sortida = new ArrayList<>();
+		sortida = new ArrayList<NovaFotografia>();
 		this.path = path;
 	}
 	

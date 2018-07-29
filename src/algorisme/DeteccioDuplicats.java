@@ -28,14 +28,14 @@ public class DeteccioDuplicats {
 			mapa.get(f.getNomFinal()).add(f);
 		}
 		else{
-			Set<NovaFotografia> grup = new HashSet<>();
+			Set<NovaFotografia> grup = new HashSet<NovaFotografia>();
 			grup.add(f);
 			mapa.put(f.getNomFinal(),grup);
 		}
 	}
 	
 	protected void obtenirDuplicats(){
-		mapa = new HashMap<>();
+		mapa = new HashMap<String, Set<NovaFotografia>>();
 		for (NovaFotografia f:fotos){
 			afegirFotoMapa(f);
 		}

@@ -17,23 +17,17 @@ public class Main {
 			return;
 		}
 		
-		switch (argv[0]){
-		case("consola"):{
+		if(argv[0].equalsIgnoreCase("consola")){
 			escriureConfiguracioConsola(argv[1]);
-			break;
 		}
-		case("fitxer"):{
+		else if(argv[0].equalsIgnoreCase("fitxer")){
 			ordenarFotografies(argv[1]);
-			break;
 		}
-		case("test"):{
+		else if (argv[0].equalsIgnoreCase("test")){
 			testFitxer(argv[1]);
-			break;
 		}
-		default:{
+		else {
 			System.err.println("Mode incorrecte");
-			break;
-		}
 		}
 		
 	}
@@ -58,7 +52,7 @@ public class Main {
 			LectorConfiguracio l = new LectorFitxer(fitxerConfiguracio);
 			l.llegirConfiguracio();
 			/* TODO: Logica de fotografies */
-			Set<Fotografia> fotos = new HashSet<>();
+			Set<Fotografia> fotos = new HashSet<Fotografia>();
 			for (String root: l.getConfiguracio().getOrigen()){
 				ILector lector = FactoryLector.getInstance().obtenirLectorFotografies(l.getConfiguracio(), root);
 				lector.llegir();

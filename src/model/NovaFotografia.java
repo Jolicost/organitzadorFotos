@@ -65,7 +65,6 @@ public class NovaFotografia extends Fotografia {
 	public static class ComparadorNovaFotografia implements Comparator<NovaFotografia>{
 
 
-		@Override
 		public int compare(NovaFotografia o1, NovaFotografia o2) {
 			return o1.getNomFinal().compareTo(o2.getNomFinal());
 		}
