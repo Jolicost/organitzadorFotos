@@ -8,6 +8,6 @@ public class LectorArbreFotografies extends LectorCarpetaFotografies{
 	}
 
 	public void llegir(){
-		
+		super.llegir();
 	}
 }

@@ -29,7 +29,7 @@ public class LectorCarpetaFotografies implements ILector {
 		this.folder = folder;
 	}
 	
-	private static Pattern p = Pattern.compile("^(?:jpg|bmp|png)$");
+	private static Pattern p = Pattern.compile("^(?:jpg|bmp|png)$",Pattern.CASE_INSENSITIVE);
 	
 	private static boolean imageExtension(String extension){
 		Matcher m = p.matcher(extension);
