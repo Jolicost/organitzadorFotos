@@ -1,6 +1,7 @@
 package lectorFotografies;
 
 import java.io.File;
+import java.io.FileFilter;
 import java.util.List;
 
 import org.apache.commons.io.FileUtils;
@@ -20,9 +21,9 @@ public class LectorArbreFotografies extends LectorCarpetaFotografies{
 
 	public void llegir(){
 		super.llegir();
-		for (File f:
-			(List<File>) FileUtils.listFiles(new File(super.folder), new NotFileFilter(TrueFileFilter.INSTANCE), DirectoryFileFilter.DIRECTORY)
-		) {
+		File carp = new File(super.folder);
+		File[] subdirs = carp.listFiles((FileFilter) DirectoryFileFilter.INSTANCE);
+		for (File f : subdirs) {
 			LectorArbreFotografies l = new LectorArbreFotografies(f.getAbsolutePath());
 			l.llegir();
 			super.resultat.addAll(l.getResultat());

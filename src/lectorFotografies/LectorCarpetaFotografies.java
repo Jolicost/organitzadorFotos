@@ -39,7 +39,7 @@ public class LectorCarpetaFotografies implements ILector {
 	public void llegir(){
 		resultat = new HashSet<Fotografia>();
 		for (File f :
-			(List<File>) FileUtils.listFiles(new File(folder), TrueFileFilter.INSTANCE, TrueFileFilter.INSTANCE)){
+			(List<File>) FileUtils.listFiles(new File(folder), TrueFileFilter.INSTANCE, null)){
 			if (LectorCarpetaFotografies.imageExtension(FilenameUtils.getExtension(f.getName()))){
 				resultat.add(new Fotografia(f));
 			}
